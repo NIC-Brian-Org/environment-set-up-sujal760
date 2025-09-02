@@ -1,0 +1,45 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "hostRequirements": {
+      "cpus": 2
+    },
+    "waitFor": "onCreateCommand",
+    "updateContentCommand": "",
+    "postCreateCommand": "",
+    "postAttachCommand": {
+      "server": "npx --yes live-server docs"
+    },
+    "customizations": {
+      "codespaces": {
+        "openFiles": [
+          "docs/index.html"
+        ]
+      },
+      "vscode": {
+        "settings": {
+          "editor.formatOnSave": true,
+          "editor.insertSpaces": true,
+          "editor.tabSize": 2,
+          "[javascript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+          },
+          "[html]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+          }
+        },
+        // Add the IDs of extensions you want installed when the container is created.
+        "extensions": [
+          "esbenp.prettier-vscode",
+          "BdSoftware.format-on-auto-save"
+        ]
+      }
+    },
+    "portsAttributes": {
+      "8080": {
+        "label": "Application",
+        "onAutoForward": "openPreview"
+      }
+    },
+    "forwardPorts": [8080]
+  }
+  
